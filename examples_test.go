@@ -48,19 +48,19 @@ func ExamplePasteAccount() {
 
 func ExamplePwnedPassword() {
 	// look up password
-	p, err := hibpgo.PwnedPassword("Pa$$w0rd", false)
+	p, err := hibpgo.PwnedPassword("password", false)
 	fmt.Println(p, err)
 
 	time.Sleep(hibpgo.APIRateLimit)
 
 	// look up SHA1 hash of password
-	p, err = hibpgo.PwnedPassword("353e8061f2befecb6818ba0c034c632fb0bcae1b", false)
+	p, err = hibpgo.PwnedPassword("5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8", false)
 	fmt.Println(p, err)
 
 	time.Sleep(hibpgo.APIRateLimit)
 
 	// look up password which itself looks like a SHA1 hash
-	p, err = hibpgo.PwnedPassword("353e8061f2befecb6818ba0c034c632fb0bcae1b", true)
+	p, err = hibpgo.PwnedPassword("5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8", true)
 	fmt.Println(p, err)
 	// Output:
 	// true <nil>
