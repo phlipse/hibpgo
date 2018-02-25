@@ -12,7 +12,6 @@ import (
 	"net/url"
 	"runtime"
 	"strconv"
-	"strings"
 	"time"
 )
 
@@ -98,16 +97,15 @@ func callEndpoint(endpoint, keyword string, querys []Query) ([]byte, error) {
 		break
 	case "pwnedpassword":
 		// get URL to endpoint
-		URL, err := getURL(endpoint, "", querys)
+		URL, err := getURL(endpoint, keyword, querys)
 		if err != nil {
 			return []byte{}, err
 		}
 		// build up request
-		req, err = http.NewRequest("POST", URL.String(), strings.NewReader("Password="+keyword))
+		req, err = http.NewRequest("GET", URL.String(), nil)
 		if err != nil {
 			return []byte{}, err
 		}
-		req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 	default:
 		return []byte{}, ErrUnknownEndpoint
 	}
