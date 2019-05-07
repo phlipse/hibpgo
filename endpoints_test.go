@@ -1,4 +1,4 @@
-// Copyright 2017 (c) Philipp Weber. All rights reserved.
+// Copyright (c) 2019 Philipp Weber. All rights reserved.
 // Use of this source code is governed by the MIT license
 // which can be found in the repositorys LICENSE file.
 
