@@ -88,8 +88,8 @@ func Dataclasses() ([]string, error) {
 	return s, nil
 }
 
-// PasteAccount returns all pastes which affected the account.
-func PasteAccount(account string) ([]PasteModel, error) {
+// PastedAccount returns all pastes which affected the account.
+func PastedAccount(account string) ([]PasteModel, error) {
 	content, err := callEndpoint("pasteaccount", account, []Query{})
 	if err != nil {
 		return nil, err

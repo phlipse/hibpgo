@@ -39,8 +39,8 @@ func ExampleDataclasses() {
 	// Account balances <nil>
 }
 
-func ExamplePasteAccount() {
-	p, err := hibpgo.PasteAccount("test@example.com")
+func ExamplePastedAccount() {
+	p, err := hibpgo.PastedAccount("test@example.com")
 	fmt.Println(p[0].Source, err)
 	// Output:
 	// Pastebin <nil>

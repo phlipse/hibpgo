@@ -46,8 +46,8 @@ func TestDataclasses(t *testing.T) {
 	}
 }
 
-func TestPasteAccount(t *testing.T) {
-	p, err := PasteAccount("test@example.com")
+func TestPastedAccount(t *testing.T) {
+	p, err := PastedAccount("test@example.com")
 	if err != nil {
 		t.Errorf("got error: %s", err.Error())
 	}
