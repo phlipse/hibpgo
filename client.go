@@ -18,7 +18,7 @@ import (
 const (
 	// APIUrl contains the base URL of the RESTful endpoint.
 	APIUrl = "https://haveibeenpwned.com/api/"
-	// APIContentNeg contains the content negotiation string for the endpoint.
+	// APIContentNeg contains the content negotiation string for the endpoint. Specifies API version to use.
 	APIContentNeg = "application/vnd.haveibeenpwned.v2+json"
 	// APIRateLimit contains the minimum amount of time between two requests in milliseconds. Should be used as sleep time when performing multiple requests sequentially!
 	APIRateLimit = time.Duration(1500) * time.Millisecond
