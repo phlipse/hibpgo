@@ -115,7 +115,12 @@ func PastedAccount(account string) ([]PasteModel, error) {
 }
 
 // PwnedPassword checks if password is compromised due to a data breach.
-func PwnedPassword(password string, originalPasswordIsAHash bool) (bool, error) {
+func PwnedPassword(password string) (bool, error) {
+	return PwnedPasswordOpt(password, false)
+}
+
+// PwnedPasswordOpt checks if password is compromised due to a data breach - includes parameter to check passwords that look like a hash.
+func PwnedPasswordOpt(password string, originalPasswordIsAHash bool) (bool, error) {
 	querys := []Query{}
 	if originalPasswordIsAHash {
 		querys = append(querys, Query{Parameter: "originalPasswordIsAHash", Value: "true"})

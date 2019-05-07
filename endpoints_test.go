@@ -77,7 +77,17 @@ func TestPastedAccount(t *testing.T) {
 }
 
 func TestPwnedPassword(t *testing.T) {
-	p, err := PwnedPassword("12 34", false)
+	p, err := PwnedPassword("12 34")
+	if err != nil {
+		t.Errorf("got error: %s", err.Error())
+	}
+	if !p {
+		t.Errorf("expected true got %t", p)
+	}
+}
+
+func TestPwnedPasswordOpt(t *testing.T) {
+	p, err := PwnedPasswordOpt("12 34", false)
 	if err != nil {
 		t.Errorf("got error: %s", err.Error())
 	}
