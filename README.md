@@ -26,6 +26,9 @@ Use [godoc](https://godoc.org/github.com/phlipse/hibpgo) for further documentati
 ## Contributing
 Pull requests are welcome!
 
+## Test
+Some tests may fail in the future because they are programmed against "moving data". I try to keep them up to date. If a test fails, please verify that it fails because of a logical error and not due to the fact that new data exists. In both situations, feel free to open an issue.
+
 ## License
 
 [MIT License](https://github.com/phlipse/hibpgo/blob/master/LICENSE)
