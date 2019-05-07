@@ -27,7 +27,17 @@ func TestBreachedAccountOpt(t *testing.T) {
 }
 
 func TestBreaches(t *testing.T) {
-	b, err := Breaches("adobe.com")
+	b, err := Breaches()
+	if err != nil {
+		t.Errorf("got error: %s", err.Error())
+	}
+	if len(b) == 0 {
+		t.Errorf("expected breaches got none")
+	}
+}
+
+func TestBreachesOpt(t *testing.T) {
+	b, err := BreachesOpt("adobe.com")
 	if err != nil {
 		t.Errorf("got error: %s", err.Error())
 	}

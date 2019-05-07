@@ -26,7 +26,14 @@ func ExampleBreachedAccountOpt() {
 }
 
 func ExampleBreaches() {
-	b, err := hibpgo.Breaches("adobe.com")
+	b, err := hibpgo.Breaches()
+	fmt.Println(b[0].Domain, err)
+	// Output:
+	// 000webhost.com <nil>
+}
+
+func ExampleBreachesOpt() {
+	b, err := hibpgo.BreachesOpt("adobe.com")
 	fmt.Println(b[0].Domain, err)
 	// Output:
 	// adobe.com <nil>

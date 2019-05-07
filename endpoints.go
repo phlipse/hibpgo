@@ -40,8 +40,13 @@ func BreachedAccountOpt(account, domain string, truncateResponse, includeUnverif
 	return b, nil
 }
 
-// Breaches returns all known breaches, may be filtered by domain name.
-func Breaches(domain string) ([]BreachModel, error) {
+// Breaches returns all known breaches.
+func Breaches() ([]BreachModel, error) {
+	return BreachesOpt("")
+}
+
+// BreachesOpt returns all known breaches - includes an additional parameter to filter the result by domain.
+func BreachesOpt(domain string) ([]BreachModel, error) {
 	querys := []Query{}
 	if domain != "" {
 		querys = append(querys, Query{Parameter: "domain", Value: domain})
