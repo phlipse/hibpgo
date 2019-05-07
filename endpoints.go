@@ -9,7 +9,12 @@ import (
 )
 
 // BreachedAccount returns all breaches which affected the account.
-func BreachedAccount(account, domain string, truncateResponse, includeUnverified bool) ([]BreachModel, error) {
+func BreachedAccount(account string) ([]BreachModel, error) {
+	return BreachedAccountOpt(account, "", false, false)
+}
+
+// BreachedAccountOpt returns all breaches which affected the account - includes several additional parameters for filtering and truncating the result.
+func BreachedAccountOpt(account, domain string, truncateResponse, includeUnverified bool) ([]BreachModel, error) {
 	querys := []Query{}
 	if domain != "" {
 		querys = append(querys, Query{Parameter: "domain", Value: domain})

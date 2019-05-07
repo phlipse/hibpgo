@@ -12,7 +12,14 @@ import (
 )
 
 func ExampleBreachedAccount() {
-	b, err := hibpgo.BreachedAccount("test@example.com", "000webhost.com", false, false)
+	b, err := hibpgo.BreachedAccount("test@example.com")
+	fmt.Println(b[0].Name, err)
+	// Output:
+	// 000webhost <nil>
+}
+
+func ExampleBreachedAccountOpt() {
+	b, err := hibpgo.BreachedAccountOpt("test@example.com", "000webhost.com", false, false)
 	fmt.Println(b[0].Name, err)
 	// Output:
 	// 000webhost <nil>

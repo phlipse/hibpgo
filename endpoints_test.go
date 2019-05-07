@@ -7,7 +7,17 @@ package hibpgo
 import "testing"
 
 func TestBreachedAccount(t *testing.T) {
-	b, err := BreachedAccount("test@example.com", "", false, false)
+	b, err := BreachedAccount("test@example.com")
+	if err != nil {
+		t.Errorf("got error: %s", err.Error())
+	}
+	if len(b) == 0 {
+		t.Errorf("expected breaches got none")
+	}
+}
+
+func TestBreachedAccountOpt(t *testing.T) {
+	b, err := BreachedAccountOpt("test@example.com", "", false, false)
 	if err != nil {
 		t.Errorf("got error: %s", err.Error())
 	}
